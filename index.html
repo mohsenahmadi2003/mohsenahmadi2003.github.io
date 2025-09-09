@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohsen Ahmadi | Resume</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome & Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #8A2BE2; /* A vibrant Galactic Purple */
+      --dark-bg: #121212;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --text-color: #E0E0E0;
+      --text-muted-color: #A0A0A0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-color);
+    }
+    
+    /* --- Header / Navbar --- */
+    .navbar-brand {
+      color: var(--text-color) !important;
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted-color) !important;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+
+    .page-content {
+      padding: 2rem 0 4rem 0;
+    }
+
+    .main-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    /* --- Cover & Avatar --- */
+    .cover-bg {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2c1a4a 100%);
+      border-radius: 20px 20px 0 0;
+      padding-top: 2rem;
+      padding-bottom: 80px; /* Space for the avatar */
+      position: relative;
+    }
+
+    .avatar-container {
+      margin-top: -80px; /* Pulls the avatar up */
+    }
+    
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid var(--dark-bg);
+      padding: 5px;
+      background-clip: content-box;
+      background-color: var(--primary-color);
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .avatar:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(138, 43, 226, 0.8);
+    }
+
+    .cover-bg h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    
+    .cover-bg .lead {
+        color: var(--text-muted-color);
+    }
+
+    .download-btn {
+        background-color: var(--primary-color);
+        border: none;
+        color: #fff;
+        padding: 10px 25px;
+        font-weight: 500;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .download-btn:hover {
+        background-color: #9932CC;
+        transform: translateY(-2px);
+    }
+    
+    /* --- General Section Styles --- */
+    .section-title {
+      color: #fff;
+      font-weight: 600;
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .section-divider {
+        border-top: 1px solid var(--border-color);
+        opacity: 0.8;
+    }
+
+    /* --- Timeline (Work Experience) --- */
+    .timeline {
+      position: relative;
+      border-left: 2px solid var(--border-color);
+      margin-left: 1rem;
+      padding: 0;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 2.5rem;
+    }
+    .timeline-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -0.7rem; 
+      top: 0.5rem;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      border: 4px solid var(--dark-bg);
+    }
+    
+    .timeline-content .card-body {
+        background-color: rgba(0,0,0,0.2);
+        border-radius: 10px;
+        border-left: 4px solid var(--primary-color);
+        padding: 1.25rem; /* Added padding */
+    }
+
+    .timeline-content .text-muted {
+        color: var(--text-muted-color) !important;
+    }
+
+    .timeline-content ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0;
+      list-style-type: none;
+    }
+    .timeline-content ul li::before {
+        content: "–";
+        margin-right: 10px;
+        color: var(--primary-color);
+    }
+    
+    .timeline-content .h5 {
+        color: #fff;
+    }
+
+    /* --- Skills Section --- */
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .skill-tags span {
+      background-color: rgba(138, 43, 226, 0.15);
+      color: #D8BFD8;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      border: 1px solid rgba(138, 43, 226, 0.4);
+    }
+
+    /* --- Projects Section --- */
+    .project-card {
+      background-color: rgba(0,0,0,0.2);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      height: 100%;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      border-color: var(--primary-color);
+    }
+    .project-card h5 {
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .footer {
+        color: var(--text-muted-color);
+    }
+    
+    /* --- Responsive Adjustments --- */
+    @media (max-width: 768px) {
+        .cover-bg h1 {
+            font-size: 2.2rem;
+        }
+        .about-section .text-lg-start {
+            text-align: center !important;
+        }
+    }
+
+  </style>
+</head>
+<body id="top">
+
+  <header class="d-print-none">
+    <div class="container py-3">
+        <!-- Header layout updated for responsiveness -->
+        <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center justify-content-lg-between">
+            <a href="#" class="navbar-brand text-center text-lg-start mb-2 mb-lg-0">Mohsen Ahmadi</a>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="mailto:ahmadimohsen138262@gmail.com" title="Email"><i class="fas fa-envelope"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/mohsenahmadi2003" title="Github" target="_blank"><i class="fab fa-github"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/mohsenahmadi2003" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="https://instagram.com/mohsenahmadi2003" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+  <div class="page-content">
+    <div class="container">
+      <div class="main-wrapper">
+        <!-- Cover Section -->
+        <div class="cover-bg text-white">
+          <div class="text-center avatar-container">
+            <img src="./profile.jpg" class="avatar" alt="Mohsen Ahmadi"/>
+          </div>
+          <div class="text-center mt-4 px-3">
+            <h1 data-aos="fade-up">Mohsen Ahmadi</h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">Backend Developer & AI Enthusiast</p>
+            <a class="btn download-btn mt-2" href="https://drive.google.com/file/d/1GL31XGQwIyNnLGocTkXWktoq08tTD3F2/view" target="_blank" data-aos="fade-up" data-aos-delay="200">
+              <i class="fas fa-download me-2"></i>Download CV
+            </a>
+          </div>
+        </div>
+
+        <div class="p-4 p-lg-5">
+            <!-- About Section -->
+            <section class="about-section" id="about">
+              <div class="row">
+                <div class="col-lg-7" data-aos="fade-right">
+                  <h2 class="h3 mb-3 section-title">About Me</h2>
+                  <p>I am Mohsen Ahmadi, a Backend Developer with a strong passion for Artificial Intelligence. My primary focus is on designing scalable systems, architecting robust services, and integrating machine learning models into real-world applications.</p>
+                </div>
+                <div class="col-lg-5" data-aos="fade-left" data-aos-delay="100">
+                  <ul class="list-unstyled pt-lg-5 mt-lg-4">
+                    <li class="mb-2"><strong>Email:</strong> ahmadimohsen138262@gmail.com</li>
+                    <li class="mb-2"><strong>Location:</strong> Iran, Kashan</li>
+                    <li class="mb-2"><strong>Languages:</strong> Farsi (Native), English (Professional)</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <hr class="my-4 section-divider"/>
+
+            <!-- Work Experience Section -->
+            <section class="experience-section" id="experience">
+              <h2 class="h3 mb-4 section-title">Work Experience</h2>
+              <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div class="card-body">
+                      <h5 class="fw-bold">Backend Intern <span class="text-muted h6">at Dadeh Pardaz</span></h5>
+                      <div class="text-muted text-small mb-2">2023 – 2024</div>
+                      <ul>
+                        <li>Designed and managed databases for web applications.</li>
+                        <li>Developed and debugged new features for existing projects.</li>
+                        <li>Contributed to the full lifecycle of website design and development.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <hr class="my-4 section-divider"/>
+            
+            <!-- Skills Section -->
+            <section class="skills-section" id="skills">
+                <h2 class="h3 mb-4 section-title">Technical Skills</h2>
+                <div data-aos="fade-up">
+                    <h6 class="fw-bold text-white">Languages & Frameworks</h6>
+                    <div class="skill-tags">
+                        <span>Python</span><span>C</span><span>C++</span><span>Django</span><span>FastAPI</span><span>Flask</span><span>Celery</span>
+                    </div>
+                </div>
+                <div class="mt-4" data-aos="fade-up" data-aos-delay="100">
+                    <h6 class="fw-bold text-white">Databases & Data Stores</h6>
+                    <div class="skill-tags">
+                        <span>PostgreSQL</span><span>MySQL</span><span>SQL Server</span><span>MongoDB</span><span>Redis</span>
+                    </div>
+                </div>
+                <div class="mt-4" data-aos="fade-up" data-aos-delay="200">
+                    <h6 class="fw-bold text-white">DevOps, Tools & Infrastructure</h6>
+                    <div class="skill-tags">
+                        <span>Docker</span><span>AWS</span><span>Nginx</span><span>RabbitMQ</span><span>Elasticsearch</span><span>Kibana</span>
+                    </div>
+                </div>
+                <div class="mt-4" data-aos="fade-up" data-aos-delay="300">
+                    <h6 class="fw-bold text-white">AI / Machine Learning</h6>
+                    <div class="skill-tags">
+                        <span>PyTorch</span><span>Scikit-learn</span><span>OpenCV</span><span>Pandas</span><span>MATLAB</span>
+                    </div>
+                </div>
+            </section>
+            <hr class="my-4 section-divider"/>
+            
+            <!-- Projects Section -->
+            <section class="projects-section" id="projects">
+                <h2 class="h3 mb-4 section-title">Projects</h2>
+                <div class="row g-4">
+                    <div class="col-lg-6" data-aos="zoom-in-up">
+                        <div class="project-card">
+                            <h5><i class="fas fa-gamepad me-2" style="color:var(--primary-color)"></i>Cyber Play Store (2025)</h5>
+                            <p class="mb-0">An online store for gaming consoles and video games, featuring OTP authentication, a secure payment gateway, a recommendation system, and Elasticsearch-powered search.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="zoom-in-up" data-aos-delay="100">
+                        <div class="project-card">
+                            <h5><i class="fas fa-shopping-cart me-2" style="color:var(--primary-color)"></i>EShop (2023–2024)</h5>
+                            <p class="mb-0">A digital products marketplace built with Django and Celery. Implemented advanced search functionality using Elasticsearch to handle large-scale data efficiently.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="zoom-in-up" data-aos-delay="200">
+                        <div class="project-card">
+                            <h5><i class="fas fa-book-open me-2" style="color:var(--primary-color)"></i>Quran Mining (2023–2024)</h5>
+                            <p class="mb-0">An intelligent system for analyzing and extracting data from the Quran, utilizing data mining and natural language processing techniques.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pt-4 pb-4 text-center d-print-none footer">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 Mohsen Ahmadi. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 50,
+      });
+    });
+  </script>
+</body>
+</html>
+
